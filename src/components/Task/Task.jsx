@@ -1,7 +1,7 @@
 import { IoMdClose } from 'react-icons/io';
 import css from './Task.module.css';
 import { useDispatch } from 'react-redux';
-import { deleteTask, toggleCompleted } from '../../redux/tasksSlice.js';
+import { deleteTask, toggleCompleted } from '../../redux/operations.js';
 
 export default function Task({ task }) {
   const dispatch = useDispatch();
@@ -9,7 +9,7 @@ export default function Task({ task }) {
   return (
     <div className={css.wrapper}>
       <input
-        onChange={() => dispatch(toggleCompleted(task.id))}
+        onChange={() => dispatch(toggleCompleted(task))}
         type="checkbox"
         className={css.checkbox}
         checked={task.completed}
